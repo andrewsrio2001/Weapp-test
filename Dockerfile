@@ -1,6 +1,9 @@
-FROM python:3.10-slim
-WORKDIR /app
-COPY . /app
-RUN pip install flask
-EXPOSE 5000
-CMD ["python", "app.py"]
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'Hello from ECS!'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
