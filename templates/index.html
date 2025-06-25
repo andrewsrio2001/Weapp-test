@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Techeron – Welcome Innovate the Future of Cloud</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M. Andrews – Cloud & DevOps Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #000;
-      --text-color: #fff;
-      --accent-color: #fff;
-      --card-bg: #111;
-      --hover-accent: #ccc;
-      --shadow-color: rgba(255, 255, 255, 0.1);
+      --bg: #000;
+      --text: #fff;
+      --card: #111;
+      --accent: #fff;
+      --fade: #aaa;
     }
 
     [data-theme="light"] {
-      --bg-color: #fff;
-      --text-color: #111;
-      --accent-color: #000;
-      --card-bg: #f4f4f4;
-      --hover-accent: #333;
-      --shadow-color: rgba(0, 0, 0, 0.1);
+      --bg: #fff;
+      --text: #000;
+      --card: #f4f4f4;
+      --accent: #000;
+      --fade: #333;
     }
 
     * {
@@ -33,238 +31,268 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      transition: background-color 0.5s, color 0.5s;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.5s;
     }
 
     header {
-      background-color: var(--card-bg);
       padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background: var(--card);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px var(--shadow-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
     }
 
     .logo {
       font-size: 1.8rem;
       font-weight: 700;
-      color: var(--accent-color);
-    }
-
-    nav a {
-      color: var(--text-color);
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--hover-accent);
+      background: linear-gradient(90deg, #00f5c5, #00d4ff, #a78bfa);
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
     }
 
     .theme-toggle {
-      cursor: pointer;
+      border: 2px solid var(--accent);
       background: none;
-      border: 2px solid var(--accent-color);
-      color: var(--accent-color);
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      margin-left: 1rem;
-      transition: all 0.3s;
+      color: var(--accent);
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
     .theme-toggle:hover {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
+      background: var(--accent);
+      color: var(--bg);
     }
 
-    .hero {
-      height: 100vh;
-      background-image: url('https://images.unsplash.com/photo-1556742400-b5b7c512f49b?auto=format&fit=crop&w=1600&q=80&grayscale');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: var(--accent-color);
-      margin-bottom: 1rem;
-      text-shadow: 1px 1px 8px rgba(255,255,255,0.3);
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      color: #ccc;
-      max-width: 600px;
-      text-shadow: 1px 1px 5px rgba(255,255,255,0.2);
-    }
-
-    .cta-btn {
-      margin-top: 2rem;
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-      padding: 0.8rem 1.5rem;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: var(--hover-accent);
-      color: var(--text-color);
-    }
-
-    section {
+    main {
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1s forwards;
     }
 
-    section:nth-of-type(2) { animation-delay: 0.3s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section {
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1s forwards;
+    }
 
-    @keyframes fadeUp {
+    section:nth-of-type(1) { animation-delay: 0.2s; }
+    section:nth-of-type(2) { animation-delay: 0.4s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.8s; }
+    section:nth-of-type(5) { animation-delay: 1s; }
+
+    @keyframes fadeIn {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    h2 {
-      font-size: 2.2rem;
-      color: var(--accent-color);
-      margin-bottom: 1.5rem;
+    h1, h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .intro {
       text-align: center;
     }
 
-    .services-grid {
+    .intro p {
+      color: var(--fade);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .cta-btn {
+      margin-top: 1.5rem;
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--bg);
+      padding: 0.7rem 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .cta-btn:hover {
+      background-color: var(--text);
+      color: var(--bg);
+    }
+
+    .skills, .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
 
     .card {
-      background: var(--card-bg);
+      background: var(--card);
       padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 5px 20px var(--shadow-color);
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
       transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
     }
 
     .card h3 {
-      color: var(--text-color);
+      color: var(--text);
       margin-bottom: 0.5rem;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
     }
 
     .card p {
-      color: #aaa;
+      color: var(--fade);
       font-size: 0.95rem;
     }
 
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 1rem;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      color: var(--fade);
+    }
+
     footer {
-      background-color: var(--card-bg);
       text-align: center;
       padding: 2rem;
+      background: var(--card);
+      color: var(--fade);
       font-size: 0.9rem;
-      color: #999;
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.2rem;
+      header {
+        flex-direction: column;
+        gap: 1rem;
       }
 
-      nav a {
-        margin-left: 1rem;
-        font-size: 0.95rem;
+      .contact a {
+        margin: 0.5rem 0;
+        display: block;
       }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="logo">Techeron</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <button class="theme-toggle" onclick="toggleTheme()">☀ / 🌙</button>
-    </nav>
+    <div class="logo">M. Andrews</div>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / 🌙</button>
   </header>
 
-  <section class="hero">
-    <h1>Welcome to Techeron 🚀</h1>
-    <p>Building the future with smart tech solutions, one line of code at a time.</p>
-    <a href="#contact" class="cta-btn">Get in Touch</a>
-  </section>
+  <main>
+    <section class="intro">
+      <h1>Cloud & DevOps Engineer</h1>
+      <p>Hi, I'm Andrews – a certified multi-cloud expert, DevOps engineer, and tech mentor. I design scalable infrastructure and CI/CD pipelines that empower innovation and performance.</p>
+      <a href="resume-andrews.pdf" class="cta-btn" download>📥 Download Resume</a>
+    </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p style="text-align:center; max-width: 700px; margin:auto;">
-      Techeron is a technology-driven company led by CEO M. Andrews. We focus on delivering innovative digital transformation solutions through cloud, automation, and application development.
-    </p>
-  </section>
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="card">
+          <h3>Cloud Platforms</h3>
+          <p>AWS, Azure, GCP – solution architecture, deployment, cost optimization.</p>
+        </div>
+        <div class="card">
+          <h3>DevOps & Automation</h3>
+          <p>CI/CD with Jenkins, GitHub Actions, AWS CodePipeline, Terraform, Ansible, Docker, Kubernetes.</p>
+        </div>
+        <div class="card">
+          <h3>Security & Monitoring</h3>
+          <p>IAM, MFA, VPCs, CloudWatch, Azure Monitor, security best practices.</p>
+        </div>
+        <div class="card">
+          <h3>Mentorship</h3>
+          <p>Guiding freshers and students in DevOps, resume building, and LinkedIn growth via Topmate.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="card">
-        <h3>Cloud Infrastructure</h3>
-        <p>Deploy and scale secure infrastructure using AWS, Azure, and GCP tailored to your business needs.</p>
+    <section>
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>CI/CD Pipeline for ECS</h3>
+          <p>Automated GitHub → ECR → ECS deployments using AWS CodePipeline and ALB integration.</p>
+        </div>
+        <div class="card">
+          <h3>Azure DevOps for Enterprise</h3>
+          <p>Implemented secure pipelines with approvals, infrastructure-as-code, and compliance monitoring.</p>
+        </div>
+        <div class="card">
+          <h3>Multi-Cloud Architecture</h3>
+          <p>Built hybrid infrastructure leveraging AWS + Azure with VPN peering and shared services.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>DevOps Automation</h3>
-        <p>Build CI/CD pipelines, improve deployment speed, and reduce errors through intelligent automation.</p>
-      </div>
-      <div class="card">
-        <h3>App Development</h3>
-        <p>Create scalable applications for web, mobile, and enterprise environments using modern frameworks.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center; max-width: 600px; margin:auto;">
-      Ready to innovate? Contact us at <a href="mailto:info@techeron.com" style="color: var(--accent-color); text-decoration: underline;">info@techeron.com</a>
-    </p>
-  </section>
+    <section class="testimonials">
+      <h2>Testimonials</h2>
+      <div class="projects">
+        <div class="card">
+          <p>"Andrews helped us migrate our entire stack to AWS with zero downtime. Highly recommend!"</p>
+          <h3>– Sarah D., CTO @FinSpark</h3>
+        </div>
+        <div class="card">
+          <p>"Thanks to his CI/CD pipeline setup, our deployment time dropped from hours to minutes."</p>
+          <h3>– Arjun R., Dev Manager @InnoCloud</h3>
+        </div>
+        <div class="card">
+          <p>"Great mentor! I landed my first DevOps role with Andrews' help via Topmate."</p>
+          <h3>– Nisha P., DevOps Intern</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Connect With Me</h2>
+      <p>
+        <a href="mailto:andrews@techeron.com">Email</a>
+        <a href="https://www.linkedin.com/in/mandrews25/" target="_blank">LinkedIn</a>
+        <a href="https://topmate.io/m_andrews" target="_blank">Topmate</a>
+        <a href="https://github.com/andrewsrio2001" target="_blank">GitHub</a>
+      </p>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Techeron. All rights reserved.
+    &copy; 2025 M. Andrews. Powered by Techeron.
   </footer>
 
   <script>
     function toggleTheme() {
       const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+      const theme = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
     }
   </script>
+
 </body>
 </html>
