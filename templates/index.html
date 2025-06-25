@@ -1,11 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Techeron – Innovate the Future</title>
+  <title>Techeron – Welcome Innovate the Future</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #000;
+      --text-color: #fff;
+      --accent-color: #fff;
+      --card-bg: #111;
+      --hover-accent: #ccc;
+      --shadow-color: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fff;
+      --text-color: #111;
+      --accent-color: #000;
+      --card-bg: #f4f4f4;
+      --hover-accent: #333;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -15,13 +33,14 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
+      transition: background-color 0.5s, color 0.5s;
     }
 
     header {
-      background-color: #1e293b;
+      background-color: var(--card-bg);
       padding: 1rem 2rem;
       position: sticky;
       top: 0;
@@ -29,17 +48,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 10px var(--shadow-color);
     }
 
     .logo {
       font-size: 1.8rem;
       font-weight: 700;
-      color: #facc15;
+      color: var(--accent-color);
     }
 
     nav a {
-      color: #f8fafc;
+      color: var(--text-color);
       text-decoration: none;
       margin-left: 1.5rem;
       font-weight: 500;
@@ -48,12 +67,29 @@
     }
 
     nav a:hover {
-      color: #60a5fa;
+      color: var(--hover-accent);
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      background: none;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin-left: 1rem;
+      transition: all 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
     }
 
     .hero {
       height: 100vh;
-      background-image: url('https://images.unsplash.com/photo-1556742400-b5b7c512f49b?auto=format&fit=crop&w=1600&q=80');
+      background-image: url('https://images.unsplash.com/photo-1556742400-b5b7c512f49b?auto=format&fit=crop&w=1600&q=80&grayscale');
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
@@ -67,22 +103,22 @@
 
     .hero h1 {
       font-size: 3rem;
-      color: #facc15;
+      color: var(--accent-color);
       margin-bottom: 1rem;
-      text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+      text-shadow: 1px 1px 8px rgba(255,255,255,0.3);
     }
 
     .hero p {
       font-size: 1.3rem;
-      color: #f1f5f9;
+      color: #ccc;
       max-width: 600px;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+      text-shadow: 1px 1px 5px rgba(255,255,255,0.2);
     }
 
     .cta-btn {
       margin-top: 2rem;
-      background-color: #3b82f6;
-      color: #fff;
+      background-color: var(--accent-color);
+      color: var(--bg-color);
       padding: 0.8rem 1.5rem;
       text-decoration: none;
       border-radius: 8px;
@@ -91,18 +127,32 @@
     }
 
     .cta-btn:hover {
-      background-color: #2563eb;
+      background-color: var(--hover-accent);
+      color: var(--text-color);
     }
 
     section {
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s forwards;
+    }
+
+    section:nth-of-type(2) { animation-delay: 0.3s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h2 {
       font-size: 2.2rem;
-      color: #facc15;
+      color: var(--accent-color);
       margin-bottom: 1.5rem;
       text-align: center;
     }
@@ -114,10 +164,10 @@
     }
 
     .card {
-      background: #1e293b;
+      background: var(--card-bg);
       padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 5px 20px var(--shadow-color);
       transition: transform 0.3s ease;
     }
 
@@ -126,22 +176,22 @@
     }
 
     .card h3 {
-      color: #60a5fa;
+      color: var(--text-color);
       margin-bottom: 0.5rem;
       font-size: 1.25rem;
     }
 
     .card p {
-      color: #cbd5e1;
+      color: #aaa;
       font-size: 0.95rem;
     }
 
     footer {
-      background-color: #1e293b;
+      background-color: var(--card-bg);
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      color: #94a3b8;
+      color: #999;
     }
 
     @media (max-width: 600px) {
@@ -157,13 +207,13 @@
   </style>
 </head>
 <body>
-
   <header>
     <div class="logo">Techeron</div>
     <nav>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#contact">Contact</a>
+      <button class="theme-toggle" onclick="toggleTheme()">☀ / 🌙</button>
     </nav>
   </header>
 
@@ -191,4 +241,30 @@
         <h3>DevOps Automation</h3>
         <p>Build CI/CD pipelines, improve deployment speed, and reduce errors through intelligent automation.</p>
       </div>
-      <div
+      <div class="card">
+        <h3>App Development</h3>
+        <p>Create scalable applications for web, mobile, and enterprise environments using modern frameworks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center; max-width: 600px; margin:auto;">
+      Ready to innovate? Contact us at <a href="mailto:info@techeron.com" style="color: var(--accent-color); text-decoration: underline;">info@techeron.com</a>
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Techeron. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</body>
+</html>
