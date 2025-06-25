@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing AWS CLI..."
+      - aws --version
+
+  build:
+    commands:
+      - echo "Generating image definition JSON..."
+      - |
+        cat <<EOF > imagedefinitions.json
+        [
+          {
+            "name": "webapp-test",
+            "imageUri": "591700125321.dkr.ecr.ca-central-1.amazonaws.com/webapp-test:latest"
+          }
+        ]
+        EOF
+      - cat imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json
